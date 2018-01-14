@@ -1,0 +1,14 @@
+#buildfiles
+build
+# Local development
+.idea
+.gradle
+out
+*.iml
+*.ipr
+*.iws
+.DS_Store
+
+# Docker
+Dockerfile
+docker-compose.yml
