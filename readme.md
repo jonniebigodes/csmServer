@@ -1,135 +1,63 @@
-# Freecodecamp Dynamic webapps
+# CSM Servidor
 
 
+Este repositorio contem a implementacao do servidor CSM (Crime Scene Magicians) 
 
-This repository contains the implementation of the Dynamic webapps challenges for freecodecamp.
-The challenges are the following
-  - [Build a Voting App]
-  - [Build a Nightlife coordination app]
-  - [Chart the Stock Market]
-  - [Manage a Book Trading Club]
-  - Build a Pinrest Clone
-
-# Methodology used
-Instead of creating a single repo for each challenge and as i'm familiar with github i condensed the dynamic  challenges in one package/repo.  
-As it's not in direct contradiction of the rules and/or objectives.
-In terms of development methodology i used the following folder structure:
-  - /controllers/
-    - This folder contains the controllers for all the challenges
+# Methodologia usada
+Em termos de metodologia usada usei a seguinte estrutura:
   - /src/
-    - This folder contains all the view implementation and also the routing logic used.
-      And also the logic applied to the server interactions. 
-  - /src/Assets/
-    - This folder contains the stylesheets and other types of media.
-  - /src/client/components/challenges/
-    - Inside this folder are the components i.e views used for the challenges.
-  - /src/client/mockData/
-    - This folder contains the implementation of some mock data for testing purposes.
-  - /src/server/
-    - This folder contains the the bits that are external to the application.
-  - /dist/
-    - This folder contains the release(aka build files).
-  - /src/common/actions
-    - This folder is the placeholder for redux actions defined for the challenges.
-  - /src/common/api
-    - This folder is the placeholder for external calls, namely rest calls to the server for the various challenges.
- - /src/common/constants
-    - This folder is the placeholder for defining the constants(i.e action types) for the challenges.
-  - /src/common/reducers
-    - This folder is the placeholder for the redux reducers for the challenges
-  - /src/common/store
-    - This folder is the placeholder for the redux stores for the challenges 
+    - Contem os ficheiros da aplicacao.
+      
+  - /src/main/java/csm/Controllers
+    - Dentro desta pasta estao contidos todos os Controladores para redirecionar os pedidos da aplicacao.
+  - /src/main/java/csm/DAO/
+    - Dentro desta pasta estao contidos todos as classes representativas dos dados da aplicacao.
+  - /src/main/java/csm/DAO/DTO
+    - Esta pasta contem as classes para conter as respostas customizadas para o utilizador a serem enviadas.
+  - /src/main/java/csm/DAO/Mappings
+    - Esta pasta contem as classes que irão mapear os dados vindos da base de dados para uma representação definida pelas classes *DAO.
+  - /src/main/java/csm/Repositories
+    - Esta pasta contem as classes para servir de repositorio dos dados vindos da base dados.
+ - /src/main/resources
+    - Esta pasta contem os ficheiros de configuracao.
+ 
     
 ### Tech
+Esta aplicação usa um numero algo grande de bibliotecas open source para funcionar corretamente:
+* [Gradle] - Excelente biblioteca para gerar builds java e nao só
+* [Springboot] - Biblioteca Java para gerar aplicações quer web quer desktop facil de configurar
+* [PostgresSQL] - Self explanatory
+* [JAVA]
+E claro está a implementação em si esta disponivel no [git-repo-url] como open source no Gitub
 
-This set of challenges uses a number of open source projects to work properly:
-* [React] - Great Javascript library for Building user interfaces
-* [React-Redux] - Redux is a predictable state container for JavaScript apps.
-* [node.js] - evented I/O for the backend
-* [Express] - fast node.js network app framework 
-* [Webpack] - fast packaging framework for deployment
-* [Mongodb] - Best of relational with the innovations of NOSQL
-* [Material-UI] - Google inspired material design framework
-* [whatwg-fetch]- A Promise-based mechanism for programatically making web requests in the browser, 
-                    cause bad..bad move to try and get stuff from mongo directly from client code, that's the server responsability right kids?
-* [React-Chart] - A react wrapper for [Chart2] library.
-* [yelp-fusion] - Yelp Fusion API client for Node.js with Promises
-* [Twitter-Client] - Twitter client package in order to be possible sharing some information in some challenges
-* [PASSPORT] - Authentication middleware for node(added normal passport and it's social variants twitter and facebook)
 
-And of course the implementation of the challenges themselves are open source with a [git-repo-url]
- on GitHub.
+### Instalação de raiz
 
-### Installation from source
+Servidor CSM necessita [Gradle](https://gradle.org/) v4+ para funcionar.
 
-freecodecamp api  requires [Node.js](https://nodejs.org/) v4+ to run.
+Download and extrair a [latest pre-built release](https://github.com/jonniebigodes/csmServer/releases).
 
-Download and extract the [latest pre-built release](https://github.com/jonniebigodes/freecodecampdynamicwebapps/releases).
 
-Define a .env file to contain your environment variables like the one bellow.
-### Environment variable list for the app to work
 
-Bellow is a list of environment variables needed for the app to funcion correctly:
-- /PROD_MONGODB/
-    - Your remote mongoDB server instance connection string
-- /QUANDL_KEY/
-    - The api key provided by [Quandl], this because upon some research i found out that this company has a well documented api and easy to use and it's data is accurate. 
-- /YELP_CONSUMER_KEY/
-    - Go to [YELP] and get your free key to use with the app.
-- /YELP_CONSUMER_SECRET/
-    - This is provided by the item above.
-- /TWITTER_APP_KEY/
-    - Go to [Twitter] and access their development section and create an app and get your key.
-- /TWITTER_APP_SECRET/
-    - This is generated by completing the above item.
-- /SESSION_HASH/
-    - Generate a hash wherever, locally or online, there are quite a bit of resources for this, this will be used by [Passport] .
-- /BLUEAPIKEY/
-    - Go to [BLUESEND] and create an account to use when sending email notifications for the books challenge.
-
-Install the dependencies and devDependencies and start the server like the example bellow shows
+Para correr a aplicação localmente será necessario executar o que se encontra descrito abaixo
 ```sh
-$ cd folder to contain the app
-$ npm install 
+$ cd pasta 
+$ gradlew (sistemas nix) ou gradlew.bat (sistemas windows) bootRun
 $ npm start
-
-Open url http://localhost:5000
+Abrir url http://localhost:8090
 ```
-
-
 License
 ----
-
 MIT
-
 
 **Free Software, Hell Yeah!**
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-   [Build a Nightlife coordination app]: <https://freecodecampdynprojects.herokuapp.com/nightlife>
-   [Chart the Stock Market]: <https://freecodecampdynprojects.herokuapp.com/stocks>
-   [Manage a Book Trading Club]:<https://freecodecampdynprojects.herokuapp.com/books>
-   [Build a Voting App]:<https://freecodecampdynprojects.herokuapp.com/voting/>
-   [React-Chart]: <https://github.com/gor181/react-chartjs-2>
-   [React-Redux]: <https://github.com/reactjs/react-redux>
-   [whatwg-fetch]: <https://github.com/github/fetch>
+   
+   [Gradle]: <https://gradle.org/>
+   [Springboot]: <https://projects.spring.io/spring-boot/>
    [React-Bootstrap]: <https://react-bootstrap.github.io/>
-   [git-repo-url]: <https://github.com/jonniebigodes/freecodecampdynamicwebapps.git>
-   [node.js]: <http://nodejs.org>
-   [express]: <http://expressjs.com>
-   [React]: <https://facebook.github.io/react/>
-   [Webpack]: <https://webpack.github.io/>
-   [Mongodb]: <https://www.mongodb.com/>
-   [Unirest]: <http://unirest.io/nodejs.html>
-   [Async]: <https://github.com/caolan/async>
-   [Chart2]: <http://www.chartjs.org/>
-   [Material-UI]:<http://www.material-ui.com>
-   [yelp-fusion]: <https://github.com/tonybadguy/yelp-fusion>
-   [Quandl]:<https://www.quandl.com/>
-   [YELP]:<https://www.yelp.com/developers>
-   [Twitter]:<https://apps.twitter.com/>
-   [BLUESEND]:<http://www.sendinblue.com>
-   [Twitter-Client]:<https://www.npmjs.com/package/twitter>
-   [PASSPORT]:<http://www.passportjs.org/>
-   [PlGh]:  <https://github.com/jonniebigodes/freecodecampdynamicwebapps/tree/master/plugins/github/readme.md>
+   [git-repo-url]: <https://github.com/jonniebigodes/csmServer.git>
+   [PostgresSQL]: <https://www.postgresql.org/>
+   [PlGh]:  <https://github.com/jonniebigodes/csmServer/tree/master/readme.md>
    
